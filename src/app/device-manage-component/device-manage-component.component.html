@@ -1,6 +1,9 @@
 <p class="subtitle">
   Manage your Devices and Tags here.
 </p>
+<p>
+  You can write new playlists to your device here or update your room.
+</p>
 <section class="section" *ngIf="configuration.incomplete">
   <div class="container">
     <h3>Particle Setup</h3>
@@ -21,16 +24,32 @@
 <section class="section">
   <div class="container">
     <h3>Write some tags</h3>
-    <div class="field">
-      <label class="label">Playlist to Write</label>
+    <label class="label">Playlist to Write</label>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input class="input" type="text" [(ngModel)]="playlist" placeholder="Enter playlist name">
+      </div>
       <div class="control">
-        <input class="input" type="text" [(ngModel)]="playlist" placeholder="Fill in your Device ID">
+        <button (click)="writeTag()" class="button is-danger">Write Tag</button>
       </div>
     </div>
-    <div class="field is-grouped">
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h3>Configuration</h3>
+    <label class="label">Room</label>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input class="input" type="text" [(ngModel)]="room">
+      </div>
       <div class="control">
-        <button (click)="writeTag()" class="button is-success">Write the Tag</button>
+        <button (click)="loadRoomName()" class="button is-info">Load</button>
+      </div>
+      <div class="control">
+        <button (click)="writeRoomName()" class="button is-danger">Update</button>
       </div>
     </div>
+
   </div>
 </section>
