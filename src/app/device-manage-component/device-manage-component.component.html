@@ -1,0 +1,36 @@
+<p class="subtitle">
+  Manage your Devices and Tags here.
+</p>
+<section class="section" *ngIf="configuration.incomplete">
+  <div class="container">
+    <h3>Particle Setup</h3>
+    <div class="field">
+      <label class="label">Particle Token</label>
+      <div class="control">
+        <input class="input" type="text" [(ngModel)]="configuration.token" placeholder="Fill in your token">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Device ID</label>
+      <div class="control">
+        <input class="input" type="text" [(ngModel)]="configuration.deviceId" placeholder="Fill in your Device ID">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <h3>Write some tags</h3>
+    <div class="field">
+      <label class="label">Playlist to Write</label>
+      <div class="control">
+        <input class="input" type="text" [(ngModel)]="playlist" placeholder="Fill in your Device ID">
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button (click)="writeTag()" class="button is-success">Write the Tag</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { DeviceManageComponentComponent } from './device-manage-component/device-manage-component.component';
 
+const appRoutes: Routes = [
+  {
+    path: 'manage',
+    component: DeviceManageComponentComponent
+  },
+  { path: '',
+    redirectTo: '/manage',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeviceManageComponentComponent
   ],
   imports: [
-    BrowserModule
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: false } // <-- enable for debugging purposes only
+    ),
+    BrowserModule, HttpModule, FormsModule
   ],
-  providers: [],
+  providers: [DeviceManageComponentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
